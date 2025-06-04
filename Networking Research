@@ -1,0 +1,47 @@
+SUBNET MASKS
+
+🧠 Mnemonic: "1 2 4 8 16 32 64 128"
+
+Common subnet mask values (255.255.255.XXX)
+
+| Bits | Binary   | Decimal |
+| ---- | -------- | ------- |
+| /25  | 10000000 | 128     |
+| /26  | 11000000 | 192     |
+| /27  | 11100000 | 224     |
+| /28  | 11110000 | 240     |
+| /29  | 11111000 | 248     |
+| /30  | 11111100 | 252     |
+| /31  | 11111110 | 254     |
+| /32  | 11111111 | 255     |
+
+
+
+
+/24 = 255.255.255.0     → 256 IPs
+/25 = 255.255.255.128   → 128 IPs
+/26 = 255.255.255.192   → 64 IPs
+/27 = 255.255.255.224   → 32 IPs
+/28 = 255.255.255.240   → 16 IPs
+/29 = 255.255.255.248   → 8 IPs
+/30 = 255.255.255.252   → 4 IPs
+/31 = 255.255.255.254   → 2 IPs (special)
+
+
+eg for a subnet mask /27 = 255.255.255.224   → 32 IPs x 8 diffrerent subnets
+usable hosts in the 7th subnet are 192.168.139.193 → 192.168.139.222 
+
+⚠️ BECAUSE:
+
+The first address in the block (192.168.139.192) is the network address
+The last address (192.168.139.223) is the broadcast address
+These two cannot be assigned to hosts!
+
+
+🔄️LOOPBACK🔄️
+	127.x.x.x is a special address block reserved only for loopback, not for normal networking.
+	Loopback is used for:
+	    Testing: Try a web server on your own machine at http://127.0.0.1:8000
+	    Local services: Databases (like PostgreSQL or MySQL) often listen on 127.0.0.1
+	    Debugging tools: Ping, traceroute, curl — for local testing
+	    Isolated development: Your code can talk to itself over "network" without needing real networking

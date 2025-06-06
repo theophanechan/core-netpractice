@@ -1,0 +1,33 @@
+Network Subnetting Reference
+
+/24	255.255.255.0	1 subnet 0-255 <network addr is x.x.x.0 (1st), broadcast addr is x.x.x.255(last)>
+/25	255.255.255.128 2 subnets 0-127 / 128-255 <minus 1st and last of range ie network & broadcast addr>
+/26	255.255.255.192 4 subnets 0-63 / 64-127 / 128-191 / 192-255
+/27	255.255.255.224 8 subnets 0-31 / 32-63 / 64-95 / 96-127 / 128-159 / 160-191 / 192-223 / 224-255
+/28	255.255.255.240 16 subnets 0-15 / 16-31 / .... / 240-255
+/29	255.255.255.248 32 subnets  0-7 / 8-15 / .... / 248-255
+/30	255.255.255.252	64 subnets 0-3 / 4-7 / .... / 252-255
+/31	255.255.255.254	128 subnets 0-2 / 3-5 / .... / 254-255
+/32	255.255.255.255	256 subnets (ie single IPs. since network addr + broadcast addr is x.x.x.0)
+
+
+
+🔑IPv4 Subnetting Reference Card🔑
+
+| CIDR | Subnet Mask     | # of Subnets in /24 | Address Range Example (Last Octet) | Usable Hosts/Subnet | Notes                             |
+| ---- | --------------- | ------------------- | ---------------------------------- | ------------------- | --------------------------------- |
+| /24  | 255.255.255.0   | 1                   | 0 – 255                            | 254                 | Default class C subnet            |
+| /25  | 255.255.255.128 | 2                   | 0 – 127 / 128 – 255                | 126                 | Splits /24 in half                |
+| /26  | 255.255.255.192 | 4                   | 0–63 / 64–127 / 128–191 / 192–255  | 62                  | 4 subnets of 64 IPs               |
+| /27  | 255.255.255.224 | 8                   | 0–31 / 32–63 … 224–255             | 30                  | 8 subnets of 32 IPs               |
+| /28  | 255.255.255.240 | 16                  | 0–15 / 16–31 … 240–255             | 14                  | Good for small LANs               |
+| /29  | 255.255.255.248 | 32                  | 0–7 / 8–15 … 248–255               | 6                   | Common for point-to-point links   |
+| /30  | 255.255.255.252 | 64                  | 0–3 / 4–7 … 252–255                | 2                   | Only 2 hosts, perfect for routers |
+| /31  | 255.255.255.254 | 128                 | 0–1 / 2–3 … 254–255                | 2                   | **Both IPs usable!** (RFC 3021)   |
+| /32  | 255.255.255.255 | 256 (single IPs)    | One IP only                        | 0                   | Used for loopback or host routes  |
+
+🧠NB🧠
+Network address = First IP of subnet (reserved)	
+Broadcast address = Last IP of subnet (reserved)
+Usable IPs = Total - 2 (except /31 where both are usable)
+/32 is not a subnet, just a single IP (no range)
